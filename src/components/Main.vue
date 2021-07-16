@@ -1,6 +1,17 @@
 <template>
-    <main>
-        <Card />
+    <main class="container-fluid">
+      <div class="row">
+        <Card class="card col-2 p-0 m-2"
+        v-for="film in media"
+        :key="film.id"
+        :pathImg="film.poster_path"
+        :title="film.title"
+        :originalTitle="film.original_title"
+        :language="film.original_language"
+        :vote="film.vote_average"
+        
+        />
+      </div>
     </main>
 </template>
 
@@ -11,10 +22,27 @@ export default {
   name: "Main",
   components:{
     Card
+  },
+  props:{
+    media: Array
   }
 };
 </script>
 
 <style lang="scss" scoped>
+  @import '../style/_colors.scss';
+
+  main {
+    height: calc(100vh - 76.25px);
+    background-color: $bg-dark;
+    overflow-y: auto ;
+
+    .card{
+      border: none;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+  }
 
 </style>

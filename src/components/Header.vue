@@ -27,7 +27,7 @@ export default {
   @import '../style/_colors.scss';
 
   header{
-    background-color: $bg-header;
+    background-color: $bg-dark;
     padding: 10px;
     .logo{
       width: 100px;
