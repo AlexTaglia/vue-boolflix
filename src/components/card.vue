@@ -1,12 +1,18 @@
 <template>
     <div class="card p-2" >
         <div class="poster">
-            <img :src="`https://image.tmdb.org/t/p/w342${pathImg}`" alt="">
+            <!-- <img :src="`https://image.tmdb.org/t/p/w342${pathImg}`" alt="`Poster of ${title}`"> -->
+            <img :src="getPathImg(pathImg)" :alt="`Poster of ${title}`">
+
         </div>
         <div class="info p-3">
             <div>Title: {{title}} </div>
             <div v-if="title != originalTitle">Original Title: {{originalTitle}} </div>
-            <div>Language: {{language}} </div>
+            <div>
+                <span> Language: {{language}} </span> 
+                <img class="flag" :src="getFlag(language)" :alt="language">
+                <!-- <img class="flag" :src="require(`../assets/flags/${language}.svg`)" :alt="language"> -->
+            </div>
             <div>Vote: {{vote}} </div>
         </div>
     </div>
@@ -22,6 +28,14 @@ export default {
         language: String,
         vote: Number,
 
+    },
+    methods:{
+        getFlag: function(fileName){
+            return require(`../assets/flags/${fileName}.svg`)
+        },
+        getPathImg: function(pathImg){
+            return (`https://image.tmdb.org/t/p/w342${pathImg}`)
+        }
     }
 }
 </script>
@@ -31,9 +45,11 @@ export default {
 
     .card{
         
-        img {
-            width: 100%;
-            object-fit: cover;
+        .poster{
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
         }
         
         .info{
@@ -48,6 +64,10 @@ export default {
 
             &:hover{
             opacity: 1;            
+            }
+
+            .flag{
+                width: 16px;
             }
         }
     }
