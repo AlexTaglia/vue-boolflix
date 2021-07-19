@@ -1,15 +1,16 @@
 <template>
-    <div class="card p-2" >
-        <div class="poster">
+    <div class="card" >
+
+        <div class="poster m-1">
             <!-- <img :src="`https://image.tmdb.org/t/p/w342${pathImg}`" alt="`Poster of ${title}`"> -->
             <img v-if="pathImg !== null"  :src="getPathImg(pathImg)" :alt="`Poster of ${title}`">
             <img class="no-img" v-else src="../assets/no_image.jpg" alt="">
 
         </div>
         <div class="info p-3">
-            <div v-if="type === 'tv'">Title: {{titleTv}} </div>
-            <div v-if="type === 'movie' || title !== ''">Title: {{title}} </div>
-            <div v-if="title != originalTitle">Original Title: {{originalTitle}} </div>
+            <div class="title" v-if="type === 'tv'">{{titleTv}} </div>
+            <div class="title" v-if="type === 'movie' || title !== ''">{{title}} </div>
+            <div class="title" v-if="title != originalTitle">Original Title: {{originalTitle}} </div>
             <div>
                 <span> Language: {{language}} </span> 
                 <img class="flag" :src="getFlag(language)" :alt="language">
@@ -21,11 +22,13 @@
                     <i class="yellowStar fas fa-star" ></i>
                 </span> 
                    
+                <!-- <span v-for="(star, index) in (5- yellowStars)" :key="'n'+index"> -->
                 <span v-for="(star, index) in getEmptyStar(yellowStars)" :key="'n'+index">
                     <i class=" far fa-star" ></i>
                 </span>  
+
                             
-            </div>
+            </div>               
 
         </div>
     </div>
@@ -72,12 +75,14 @@ export default {
   @import '../style/_colors.scss';
 
     .card{
-        
+        text-align: center;
+        padding: 10px;
         
         .poster{
             img {
                 width: 100%;
                 object-fit: cover;
+                border-radius: 5px;
             }
 
             .no-img {
@@ -97,6 +102,11 @@ export default {
 
             &:hover{
             opacity: 1;            
+            }
+
+            .title{
+                font-size: 22px;
+                font-weight: bold;
             }
 
             .flag{
