@@ -7,7 +7,8 @@
 
         </div>
         <div class="info p-3">
-            <div>Title: {{title}} </div>
+            <div v-if="type === 'tv'">Title: {{titleTv}} </div>
+            <div v-if="type === 'movie' || title !== ''">Title: {{title}} </div>
             <div v-if="title != originalTitle">Original Title: {{originalTitle}} </div>
             <div>
                 <span> Language: {{language}} </span> 
@@ -45,6 +46,8 @@ export default {
         title: String,
         originalTitle: String,
         language: String,
+        titleTv: String,
+        type: String,
         vote: Number,
 
     },

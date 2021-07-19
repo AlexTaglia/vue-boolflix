@@ -8,6 +8,7 @@
         :pathImg="film.poster_path"
         :title="film.title"
         :titleTv="film.original_name"
+        :type="film.media_type"
         :originalTitle="film.original_title"
         :language="film.original_language"
         :vote="film.vote_average"
