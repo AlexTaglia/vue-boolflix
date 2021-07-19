@@ -1,8 +1,19 @@
 <template>
   <header class="d-flex justify-content-between align-items-center">
     
-    <div class="logo">
-      <img src="../assets/Netflix-logo.png" alt="">
+    <div class="logo-section d-flex align-items-center">
+      <div class="logo">
+        <img src="../assets/Netflix-logo.png" alt="">
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a href=""></a>Home</li>
+          <li><a href=""></a>Serie TV</li>
+          <li><a href=""></a>Film</li>
+          <li><a href=""></a>Nuovi e popolari</li>
+          <li><a href=""></a>La mia lista</li>
+        </ul>
+      </div>
     </div>
 
     <div class="search-bar">
@@ -50,11 +61,29 @@ export default {
       }
     }
 
+    .menu{
+      font-size: 14px;
+      padding-top: 10px;
+      
+      li{
+        transition: 0.3s;
+      }
+
+
+      li:hover{
+        color: gray;
+      }
+
+    }
+
     .search-bar{
+      
       button{
         border: none;
         margin-left: 15px;
         height: 28px;
+        line-height: 28px;
+        font-size: 12px;
       }
     }
   }

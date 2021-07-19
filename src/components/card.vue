@@ -40,7 +40,7 @@ export default {
 
     data: function () {
         return {
-            yellowStars: Math.round(this.vote / 2),
+            yellowStars: Math.floor(this.vote / 2),
         }
     },
     
