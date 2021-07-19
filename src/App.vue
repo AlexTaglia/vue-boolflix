@@ -31,6 +31,9 @@ export default {
       
       //Stringa senza query
       apiMultiSearch: "https://api.themoviedb.org/3/search/multi?api_key=f865c89fd276891cde3cc08ad6dd6178&query=",
+      // apiMovie: "https://api.themoviedb.org/3/search/movie?api_key=f865c89fd276891cde3cc08ad6dd6178&query=",
+      // apiTV: "https://api.themoviedb.org/3/search/tv?api_key=f865c89fd276891cde3cc08ad6dd6178&query=",
+
     }
   },
   
@@ -43,14 +46,23 @@ export default {
     // Creo una funzione che unisce la stringa dell'API 
     // con il mio input di ricerca
     getString: function(searchMedia) {
-      // aggiungo la mia ricerca  alla mia stringa dell'api
-      this.apiMultiSearch = `https://api.themoviedb.org/3/search/movie?api_key=f865c89fd276891cde3cc08ad6dd6178&query=${searchMedia}`;
+
+      //Se la mia stringa di ricerca è vuota mi restituisce l'api di default
+      if(searchMedia == ""){
+        this.apiMultiSearch = this.apiDeafault
+      } else{
+        // Altrimenti aggiungo la mia ricerca  alla mia stringa dell'api
+        this.apiMultiSearch = `https://api.themoviedb.org/3/search/multi?api_key=f865c89fd276891cde3cc08ad6dd6178&query=${searchMedia}`;
+        // this.apiMovie = `https://api.themoviedb.org/3/search/movie?api_key=f865c89fd276891cde3cc08ad6dd6178&query=${searchMedia}`;
+        // this.apiTV = `https://api.themoviedb.org/3/search/tv?api_key=f865c89fd276891cde3cc08ad6dd6178&query=${searchMedia}`;
+      }
 
       // Genero l'API 
       this.getApi(this.apiMultiSearch)
+      // this.getApi(this.apiMovie)
+      // this.getApi(this.apiTV)
 
       console.log(`getString function, input di ricerca: ${searchMedia}`)
-      console.log(`apiMultiSearch reset: ${this.apiMultiSearch}`)
      },
 
     //funzione per lanciare l'API

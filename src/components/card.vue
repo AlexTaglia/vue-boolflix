@@ -2,7 +2,8 @@
     <div class="card p-2" >
         <div class="poster">
             <!-- <img :src="`https://image.tmdb.org/t/p/w342${pathImg}`" alt="`Poster of ${title}`"> -->
-            <img :src="getPathImg(pathImg)" :alt="`Poster of ${title}`">
+            <img v-if="pathImg !== null"  :src="getPathImg(pathImg)" :alt="`Poster of ${title}`">
+            <img class="no-img" v-else src="../assets/no_image.jpg" alt="">
 
         </div>
         <div class="info p-3">
@@ -13,7 +14,7 @@
                 <img class="flag" :src="getFlag(language)" :alt="language">
                 <!-- <img class="flag" :src="require(`../assets/flags/${language}.svg`)" :alt="language"> -->
             </div>
-            <!-- <div>Vote: {{vote}} </div> -->
+
             <div>
                 <span v-for="(star, index) in yellowStars" :key='index'>
                     <i class="yellowStar fas fa-star" ></i>
@@ -74,6 +75,10 @@ export default {
             img {
                 width: 100%;
                 object-fit: cover;
+            }
+
+            .no-img {
+                opacity: 0.1;
             }
         }
         
