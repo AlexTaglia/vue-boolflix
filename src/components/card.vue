@@ -13,7 +13,18 @@
                 <img class="flag" :src="getFlag(language)" :alt="language">
                 <!-- <img class="flag" :src="require(`../assets/flags/${language}.svg`)" :alt="language"> -->
             </div>
-            <div>Vote: {{vote}} </div>
+            <!-- <div>Vote: {{vote}} </div> -->
+            <div>
+                <span v-for="(star, index) in yellowStars" :key='index'>
+                    <i class="yellowStar fas fa-star" ></i>
+                </span> 
+                   
+                <span v-for="(star, index) in getEmptyStar(yellowStars)" :key="'n'+index">
+                    <i class=" far fa-star" ></i>
+                </span>  
+                            
+            </div>
+
         </div>
     </div>
 </template>
@@ -21,6 +32,13 @@
 <script>
 export default {
     name: 'Card',
+
+    data: function () {
+        return {
+            yellowStars: Math.round(this.vote / 2),
+        }
+    },
+    
     props:{
         pathImg: String,
         title: String,
@@ -35,8 +53,14 @@ export default {
         },
         getPathImg: function(pathImg){
             return (`https://image.tmdb.org/t/p/w342${pathImg}`)
-        }
-    }
+        },
+        getEmptyStar : function (yellowStars){
+            return 5 - yellowStars;
+        },
+        // getStar : function (vote){
+        //     return Math.round(vote / 2)
+        // }
+  },    
 }
 </script>
 
@@ -44,6 +68,7 @@ export default {
   @import '../style/_colors.scss';
 
     .card{
+        
         
         .poster{
             img {
@@ -68,6 +93,10 @@ export default {
 
             .flag{
                 width: 16px;
+            }
+
+            .yellowStar{
+                color: yellow;
             }
         }
     }
