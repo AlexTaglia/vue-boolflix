@@ -1,7 +1,8 @@
 <template>
     <main class="container-fluid">
       <div class="row">
-        <Card class="card col-2 p-0 m-2"
+        <h1>ORIGINALI NETFLIX</h1>
+        <Card class="card col-2 p-0"
         v-for="film in media"
         :key="film.id"
         :pathImg="film.poster_path"
@@ -24,7 +25,7 @@ export default {
     Card
   },
   props:{
-    media: Array
+    media: Array,
   }
 };
 </script>
@@ -37,10 +38,16 @@ export default {
     background-color: $bg-dark;
     overflow-y: auto ;
 
+    h1{
+      color: $text-white;
+      font-size: 25px;
+    }
+
     .card{
       border: none;
-      border-radius: 14px;
+      border-radius: 6px;
       overflow: hidden;
+      background-color: transparent;
     }
 
   }

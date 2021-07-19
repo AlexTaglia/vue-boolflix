@@ -1,5 +1,5 @@
 <template>
-    <div class="card" >
+    <div class="card p-2" >
         <div class="poster">
             <img :src="`https://image.tmdb.org/t/p/w342${pathImg}`" alt="">
         </div>
@@ -33,11 +33,12 @@ export default {
         
         img {
             width: 100%;
+            object-fit: cover;
         }
         
         .info{
-            width: 100%;
             height: 100%;
+            width: 100%;
             position: absolute;
             color: $text-white;
             opacity: 0;
