@@ -1,8 +1,8 @@
 <template>
-    <div class="card" >
+    <div class="card" v-if="type !== 'person'" >
 
         <div class="poster m-1">
-            <img v-if="pathImg !== null && pathImg !== undefined "  :src="getPathImg(pathImg)" :alt="`Poster of ${title}`">
+            <img v-if="pathImg !== null && pathImg !== undefined"  :src="getPathImg(pathImg)" :alt="`Poster of ${title}`">
             <img class="no-img" v-else src="../assets/no_image.jpg" alt="">
 
         </div>
@@ -16,7 +16,11 @@
 
             <div>
                 <i v-for="x in 5" :key="x" class="fa-star" :class="x <= getAverage(vote) ? 'fas yellowStar': 'far' "></i>
-            </div>               
+            </div>  
+
+            <div>
+            {{type}}    
+            </div>             
 
         </div>
     </div>
