@@ -2,8 +2,7 @@
     <div class="card" >
 
         <div class="poster m-1">
-            <!-- <img :src="`https://image.tmdb.org/t/p/w342${pathImg}`" alt="`Poster of ${title}`"> -->
-            <img v-if="pathImg !== null"  :src="getPathImg(pathImg)" :alt="`Poster of ${title}`">
+            <img v-if="pathImg !== null && pathImg !== undefined "  :src="getPathImg(pathImg)" :alt="`Poster of ${title}`">
             <img class="no-img" v-else src="../assets/no_image.jpg" alt="">
 
         </div>
