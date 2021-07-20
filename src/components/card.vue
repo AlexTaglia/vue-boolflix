@@ -9,25 +9,14 @@
         </div>
         <div class="info p-3">
             <div class="title" v-if="type === 'tv'">{{titleTv}} </div>
-            <div class="title" v-if="type === 'movie' || title !== ''">{{title}} </div>
-            <div class="title" v-if="title != originalTitle">Original Title: {{originalTitle}} </div>
+            <div class="title" v-if="type === 'movie'">{{title}} </div>
             <div>
                 <span> Language: {{language}} </span> 
                 <img class="flag" :src="getFlag(language)" :alt="language">
-                <!-- <img class="flag" :src="require(`../assets/flags/${language}.svg`)" :alt="language"> -->
             </div>
 
             <div>
-                <span v-for="(star, index) in yellowStars" :key='index'>
-                    <i class="yellowStar fas fa-star" ></i>
-                </span> 
-                   
-                <!-- <span v-for="(star, index) in (5- yellowStars)" :key="'n'+index"> -->
-                <span v-for="(star, index) in getEmptyStar(yellowStars)" :key="'n'+index">
-                    <i class=" far fa-star" ></i>
-                </span>  
-
-                            
+                <i v-for="x in 5" :key="x" class="fa-star" :class="x <= getAverage(vote) ? 'fas yellowStar': 'far' "></i>
             </div>               
 
         </div>
@@ -37,13 +26,7 @@
 <script>
 export default {
     name: 'Card',
-
-    data: function () {
-        return {
-            yellowStars: Math.ceil(this.vote / 2),
-        }
-    },
-    
+   
     props:{
         pathImg: String,
         title: String,
@@ -61,12 +44,9 @@ export default {
         getPathImg: function(pathImg){
             return (`https://image.tmdb.org/t/p/w342${pathImg}`)
         },
-        getEmptyStar : function (yellowStars){
-            return 5 - yellowStars;
-        },
-        // getStar : function (vote){
-        //     return Math.round(vote / 2)
-        // }
+        getAverage(vote){
+            return Math.ceil(vote / 2)
+        }
   },    
 }
 </script>
