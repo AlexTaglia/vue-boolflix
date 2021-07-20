@@ -3,9 +3,9 @@
 
         <div class="poster m-1">
             <img v-if="pathImg !== null && pathImg !== undefined"  :src="getPathImg(pathImg)" :alt="`Poster of ${title}`">
-            <img class="no-img" v-else src="../assets/no_image.jpg" alt="">
-
+            <img class="no-img" v-else src="../assets/no_image.jpg" alt="Poster not found">
         </div>
+        
         <div class="info p-3">
             <div class="title" v-if="type === 'movie' || type === undefined">{{title}} </div>
             <div class="title" v-else>{{titleTv}} </div>
@@ -19,7 +19,7 @@
                 <i v-for="x in 5" :key="x" class="fa-star" :class="x <= getAverage(vote) ? 'fas yellowStar': 'far' "></i>
             </div>  
 
-            <div>
+            <div class="type">
             {{type}}    
             </div>             
 
@@ -85,7 +85,7 @@ export default {
             font-size: 16px;
 
             &:hover{
-            opacity: 1;            
+            opacity: 1;   
             }
 
             .title{
@@ -99,6 +99,15 @@ export default {
 
             .yellowStar{
                 color: yellow;
+            }
+
+            .type{
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+                background-color: red;
+                padding: 0 6px;
+                border-radius: 4px;
             }
         }
     }
