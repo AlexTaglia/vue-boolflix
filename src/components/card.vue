@@ -7,8 +7,9 @@
 
         </div>
         <div class="info p-3">
-            <div class="title" v-if="type === 'tv'">{{titleTv}} </div>
-            <div class="title" v-if="type === 'movie'">{{title}} </div>
+            <div class="title" v-if="type === 'movie' || type === undefined">{{title}} </div>
+            <div class="title" v-else>{{titleTv}} </div>
+
             <div>
                 <span> Language: {{language}} </span> 
                 <img class="flag" :src="getFlag(language)" :alt="language">
@@ -33,9 +34,9 @@ export default {
     props:{
         pathImg: String,
         title: String,
+        titleTv: String,
         originalTitle: String,
         language: String,
-        titleTv: String,
         type: String,
         vote: Number,
 
