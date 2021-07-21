@@ -21,7 +21,7 @@
             </div>  
 
             <div class="type">
-            {{type}}    
+                {{type}}    
             </div>             
 
         </div>
@@ -93,7 +93,7 @@ export default {
             position: absolute;
             color: $text-white;
             opacity: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: $bg-card-hover;
             transition: 0.3s;
             font-size: 16px;
 
@@ -111,14 +111,14 @@ export default {
             }
 
             .yellowStar{
-                color: yellow;
+                color:$yellow;
             }
 
             .type{
                 position: absolute;
                 bottom: 10px;
                 left: 10px;
-                background-color: red;
+                background-color: $red;
                 padding: 0 6px;
                 border-radius: 4px;
             }

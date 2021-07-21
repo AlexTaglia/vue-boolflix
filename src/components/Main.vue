@@ -1,8 +1,6 @@
 <template>
     <main class="container-fluid">
-      <div class="row" 
-        v-if="media.length > 0">
-
+      <div class="row" v-if="media.length > 0">
         <Card class="card col-2 p-0"
         v-for="film in media"
         :key="film.id"
@@ -14,13 +12,12 @@
         :language="film.original_language"
         :vote="film.vote_average"
         />
-
-
       </div>
-      <div class="row text-center" 
-        v-else>
+
+      <div class="row text-center" v-else>
         <h1>Nessun risultato</h1>
       </div>
+
     </main>
 </template>
 
@@ -46,7 +43,6 @@ export default {
     background-color: $bg-dark;
     overflow-y: auto ;
     overflow-x: hidden ;
-
 
     h1{
       color: $text-white;

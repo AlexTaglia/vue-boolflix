@@ -18,6 +18,7 @@ import axios from 'axios'
 
 export default {
   name: 'App',
+
   components: {
     Header,
     Main
@@ -26,11 +27,10 @@ export default {
   data: function() {
     return{
       media: [],
+      apiMultiSearch: "",
+      
       //API caricata al primo loading
       apiDeafault: "https://api.themoviedb.org/3/movie/popular?api_key=f865c89fd276891cde3cc08ad6dd6178",
-      
-      //Stringa senza query
-      apiMultiSearch: "https://api.themoviedb.org/3/search/multi?api_key=f865c89fd276891cde3cc08ad6dd6178&query=",
     }
   },
   
@@ -56,12 +56,13 @@ export default {
       this.getApi(this.apiMultiSearch)
 
       console.log(`getString function, input di ricerca: ${searchMedia}`)
-     },
+    },
 
     //funzione per lanciare l'API
     getApi: function (api){
       axios.get(api).then((result)=>{
         this.media = result.data.results;
+        
         console.log(`getApi function`)
       })
     },

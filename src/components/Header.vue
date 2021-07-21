@@ -31,21 +31,20 @@
 
 export default {
   name: 'Header',
+
   data(){
     return{
       searchMedia: '',
       isActive: true,
     }
   }, 
+
   methods:{
 
-    // ToDo
-    
     resetForm: function (){
         this.searchMedia='';
         console.log('clear')
     }
-    
   }
 
 }
@@ -74,7 +73,7 @@ export default {
       }
 
       li:hover{
-        color: gray;
+        color: $text-gray;
       }
     }
 
