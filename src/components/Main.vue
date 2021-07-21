@@ -1,7 +1,8 @@
 <template>
     <main class="container-fluid">
-      <div class="row">
-        <h1>ORIGINALI NETFLIX</h1>
+      <div class="row" 
+        v-if="media.length > 0">
+
         <Card class="card col-2 p-0"
         v-for="film in media"
         :key="film.id"
@@ -12,8 +13,13 @@
         :originalTitle="film.original_title"
         :language="film.original_language"
         :vote="film.vote_average"
-        
         />
+
+
+      </div>
+      <div class="row text-center" 
+        v-else>
+        <h1>Nessun risultato</h1>
       </div>
     </main>
 </template>
