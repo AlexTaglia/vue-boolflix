@@ -11,8 +11,9 @@
             <div class="title" v-else>{{titleTv}} </div>
 
             <div>
-                <span> Language: {{language}} </span> 
-                <img class="flag" :src="getFlag(language)" :alt="language">
+                <span> Language: </span> 
+                <img v-if="languageFlags.includes(language)" class="flag" :src="getFlag(language)" :alt="language">
+                <span v-else> {{language}} </span> 
             </div>
 
             <div>
@@ -30,6 +31,12 @@
 <script>
 export default {
     name: 'Card',
+
+    data: function(){
+        return{
+            languageFlags:['it', 'en', 'es', 'de', 'fr', 'ru'],
+        }
+    },
    
     props:{
         pathImg: String,
