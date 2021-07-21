@@ -7,11 +7,11 @@
       </div>
       <div class="menu">
         <ul>
-          <li><a href=""></a>Home</li>
-          <li><a href=""></a>Serie TV</li>
-          <li><a href=""></a>Film</li>
-          <li><a href=""></a>Nuovi e popolari</li>
-          <li><a href=""></a>La mia lista</li>
+          <li><a href="">Home</a></li>
+          <li><a href="">Serie TV</a></li>
+          <li><a href="">Film</a></li>
+          <li><a href="">Nuovi e popolari</a></li>
+          <li><a href="">La mia lista</a></li>
         </ul>
       </div>
     </div>
@@ -72,7 +72,7 @@ export default {
         transition: 0.3s;
       }
 
-      li:hover{
+      a:hover{
         color: $text-gray;
       }
     }
