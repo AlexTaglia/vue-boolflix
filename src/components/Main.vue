@@ -39,6 +39,8 @@ export default {
     height: calc(100vh - 76.25px);
     background-color: $bg-dark;
     overflow-y: auto ;
+    overflow-x: hidden ;
+
 
     h1{
       color: $text-white;

@@ -30,7 +30,7 @@ export default {
       apiDeafault: "https://api.themoviedb.org/3/movie/popular?api_key=f865c89fd276891cde3cc08ad6dd6178",
       
       //Stringa senza query
-      apiMultiSearch: "https://api.themoviedb.org/3/search/multi?api_key=f865c89fd276891cde3cc08ad6dd6178&query=",
+      // apiMultiSearch: "https://api.themoviedb.org/3/search/multi?api_key=f865c89fd276891cde3cc08ad6dd6178&query=",
       // apiMovie: "https://api.themoviedb.org/3/search/movie?api_key=f865c89fd276891cde3cc08ad6dd6178&query=",
       // apiTV: "https://api.themoviedb.org/3/search/tv?api_key=f865c89fd276891cde3cc08ad6dd6178&query=",
 

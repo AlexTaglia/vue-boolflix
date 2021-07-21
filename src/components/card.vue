@@ -1,7 +1,7 @@
 <template>
     <div class="card" v-if="type !== 'person'" >
 
-        <div class="poster m-1">
+        <div class="poster m-1" >
             <img v-if="pathImg !== null && pathImg !== undefined"  :src="getPathImg(pathImg)" :alt="`Poster of ${title}`">
             <img class="no-img" v-else src="../assets/no_image.jpg" alt="Poster not found">
         </div>
@@ -61,6 +61,12 @@ export default {
     .card{
         text-align: center;
         padding: 10px;
+        transition: transform .3s; 
+
+        &:hover{
+            transform: scale(1.1);
+            z-index: 2;
+        }
         
         .poster{
             img {
